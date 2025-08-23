@@ -1,5 +1,5 @@
 
-🚀 <font size=5>build-php82-ubuntu18.sh使用方法</font>  
+🚀 <font size=7>build-php82-ubuntu18.sh使用方法</font>  
 
 一、默认安装 PHP 8.2.23 并清理源码：
 
