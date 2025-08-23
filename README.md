@@ -18,3 +18,7 @@ chmod +x build-php82-ubuntu18.sh
 
 
 脚本会自动检测内存大小，低内存时创建 4GB Swap，并自动选择合适的 make -j 并行数，避免 OOM 编译失败。
+生成的php82可以安装到其他ubuntu18的机器上，在编译好的机器上打包制作二进制包 (tar.gz)
+cd /usr/local
+tar -czf php8.2-bin.tar.gz php8.2 openssl
+使用install_php_bin.sh还原
