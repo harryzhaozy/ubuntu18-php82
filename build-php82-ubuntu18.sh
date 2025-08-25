@@ -32,11 +32,13 @@ sudo apt update -y
 sudo apt upgrade -y
 
 echo ">>> 安装依赖 ..."
-sudo apt install -y build-essential pkg-config \
-    libxml2-dev libsqlite3-dev libonig-dev libcurl4-openssl-dev \
-    libssl-dev libzip-dev libjpeg-dev libpng-dev libwebp-dev libfreetype6-dev \
-    libicu-dev libxslt1-dev libreadline-dev libargon2-0-dev libsodium-dev \
-    libtidy-dev libxslt-dev zlib1g-dev wget tar
+sudo apt install -y \
+    build-essential pkg-config libxml2-dev libsqlite3-dev libssl-dev \
+    libcurl4-openssl-dev libonig-dev libzip-dev libjpeg-dev \
+    libpng-dev libwebp-dev libxpm-dev libfreetype6-dev \
+    libmagickwand-dev imagemagick \
+    libicu-dev bison re2c autoconf automake libtool git wget unzip
+
 
 # ----------------------------
 # 自动判断内存并创建 Swap
@@ -105,9 +107,15 @@ echo ">>> 配置编译参数 ..."
     --enable-bcmath \
     --enable-soap \
     --with-gettext \
-    --with-freetype \
+    --enable-gd \
+    --with-external-gd \
     --with-jpeg \
-    --with-webp
+    --with-freetype \
+    --with-webp \
+    --with-xpm \
+    --enable-exif \
+    --enable-pcntl \
+    --with-pear
 
 echo ">>> 编译并安装 PHP ${PHP_VERSION} ..."
 make -j$MAKE_J
